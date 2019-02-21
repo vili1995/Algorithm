@@ -1,33 +1,28 @@
 import sys
 sys.setrecursionlimit(10000)
 
-num = input().split()
-numItem = num[0]
-maxValue = num[1]
+n = [int(i) for i in input().split(' ')]
+slot = n[0]
+maxweight = n[1]
 
-weight = input().split()
-value = input().split()
+w = [int(i) for i in input().split(' ')]
+v = [int(i) for i in input().split(' ')]
 
-x = [0]* (numItem + 1)
+mm = [[-1]*( maxweight + 1 ) for i in range(slot+1)]
 
-def knapSack(i):
 
-    sumWeight = sumValue = 0
-
-    if i == numItem:
-        for j in range(numItem):
-            sumWeight += weight[j] * x[j]
-            sumValue += value[j] * x[j]
-
-        if sumWeight <= maxValue:
-            return sumValue
+def knapSack(i, c):
+    global mm
+    if mm[i][c] == -1:
+        if i == slot:
+            mm [i][c] =  0
         else:
-            return -1
-    else:
-        x[i] = 0
-        mx = knapSack(i+1)
-        x[i] = 1
-        mx = max (mx,knapSack(i+1))
+            skip = knapSack(i+1,c)
+            take = 0
+            if w[i] <= c:
+                take = knapSack(i+1, c-w[i])+ v[i]
+            mm [i][c] = max(skip,take)
+    return mm[i][c]
 
 
-print(knapSack(0))
+print(knapSack(0,maxweight))
