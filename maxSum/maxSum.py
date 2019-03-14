@@ -11,8 +11,8 @@ def accum (num):
         num[i] = num[i-1]+ num[i]
     return num
 
-# num = input().split()
 num = input().split()
+# num = open("./maxsum (1)/100numbers.in").read().split()
 
 for i in range (len(num)):
     num[i] = int(num[i])

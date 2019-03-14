@@ -1,12 +1,20 @@
 import sys
 sys.setrecursionlimit(10000)
 
-n = [int(i) for i in input().split(' ')]
+n =  input().split(' ')
+for i in range(len(n)):
+   n[i] = int(n[i])
+
 slot = n[0]
 maxweight = n[1]
 
-w = [int(i) for i in input().split(' ')]
-v = [int(i) for i in input().split(' ')]
+w =  input().split(' ')
+for i in range(len(w)):
+    w[i] = int(w[i])
+
+v = input().split(' ')
+for i in range(len(v)):
+    v[i] = int(v[i])
 
 mm = [[-1]*( maxweight + 1 ) for i in range(slot+1)]
 

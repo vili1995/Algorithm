@@ -4,7 +4,9 @@ sys.setrecursionlimit(10000)
 price = input().split()
 for i in range(len(price)):
     price[i] = int(price[i])
+
 counter = 0
+
 mm = [0] * len(price)
 call = [0] * len(price)
 
