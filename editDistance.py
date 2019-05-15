@@ -1,4 +1,0 @@
-A = input()
-B = input()
-
-
