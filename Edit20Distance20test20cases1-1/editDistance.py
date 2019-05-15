@@ -2,7 +2,7 @@ s1 = input()
 s2 = input()
 
 # for i in range (len)
-def levenshteinDistance(s1, s2):
+def editDistance(s1, s2):
     if len(s1) > len(s2):
         s1, s2 = s2, s1
 
@@ -17,4 +17,4 @@ def levenshteinDistance(s1, s2):
         distances = distances_
     return distances[-1]
 
-print(levenshteinDistance(s1,s2))
+print(editDistance(s1,s2))
